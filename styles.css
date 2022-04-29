@@ -152,6 +152,22 @@ main {
   margin-top: 4em;
 }
 
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-top: 2rem;
+  justify-content: space-between;
+}
+
+.side-content {
+  display: flex;
+  flex: 2;
+  background-color: var(--white);
+  padding: 4em 10px;
+  height: 6rem;
+  margin-left: 1rem;
+}
+
 .list-container {
   display: flex;
   flex-direction: column;
@@ -159,7 +175,8 @@ main {
   justify-content: center;
   background-color: var(--white);
   padding: 4em 10px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  flex: 3;
 }
 
 .shaddow {
@@ -175,6 +192,7 @@ main {
   padding: 1rem;
   border: 0.1px solid var(--gray-300);
   border-radius: 5px;
+  margin-bottom: 2rem;
 }
 
 .gradient {
