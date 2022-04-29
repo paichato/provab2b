@@ -25,9 +25,9 @@ const myFunction = () => {
   //     document.documentElement.scrollHeight * 0.58 <
   //     document.documentElement.scrollTop
   //   ) {
-  if (currentScroll + 100 >= maxScroll) {
+  if (currentScroll >= maxScroll) {
     console.log("FIM");
-    // document.getElementById("cards").innerHTML += loaderHTML;
+
     setTimeout(() => {
       getContent();
     }, 1000);
@@ -37,7 +37,8 @@ const myFunction = () => {
 let scrollHeight2 = 2225;
 let scrollTop2 = 1305;
 
-const loaderHTML = `<strong id="loader" class="text my-10">carregando mais...</strong>`;
+var loaderHTML = `<strong id="loader" class="text my-10">carregando mais...</strong>`;
+var emptyHTML = `<strong id="loader" class="text my-10">sem mais itens por carregar</strong>`;
 
 const cardHTML = (element) => {
   return `<section class="shaddow card-container">
@@ -59,7 +60,17 @@ const cardHTML = (element) => {
 
 const getContent = async () => {
   const cards = document.getElementById("cards");
+  //   const loaderID = document.getElementById("loader");
   const loaderID = document.getElementById("loader");
+  if (loaderID) {
+    loaderID.remove();
+  } else {
+    if (page < 7) {
+      document.getElementById("cards").innerHTML += loaderHTML;
+    } else {
+      document.getElementById("cards").innerHTML += emptyHTML;
+    }
+  }
 
   if (page > 6) return;
   page += 1;
