@@ -32,11 +32,18 @@
             <p>comprar</p>
           </div>
           <div class="nav-login">
-            <button class="orange-button">Escreva uma avaliação</button>
-            <div class="mx-10">
+            <button class="orange-button aval">Escreva uma avaliação</button>
+            <div class="mx-10 login">
               <p>icon</p>
               <span>Entrar</span>
             </div>
+
+            <img
+              onclick="toggleMenu()"
+              class="ham"
+              src="./assets/ham.png"
+              alt=""
+            />
           </div>
         </div>
       </nav>
@@ -51,7 +58,7 @@
       </div>
       <div class="main-wrapper">
         <div class="list-container rounded">
-          <h2 class="text my-10">Todas as soluções para Pré vendas</h2>
+          <h2 class="text my-10 text_alt">Todas as soluções para Pré vendas</h2>
 
           <div id="cards">
             <!-- <section class="shaddow card-container">
@@ -71,6 +78,14 @@
             </section> -->
           </div>
           <div id="footer"></div>
+        </div>
+        <div class="hidden" id="horizontal-menu">
+          <button onclick="toggleMenu()" id="close-icon" class="invisible">
+            X
+          </button>
+          <span class="horizontal-menu-text">Escrever avaliação</span>
+          <span class="horizontal-menu-text">comprar</span>
+          <span class="horizontal-menu-text">entrar</span>
         </div>
 
         <section class="side-content">hasda</section>

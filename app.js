@@ -1,15 +1,33 @@
+let page = 1;
+var scrolling = false;
+
 window.addEventListener("load", () => {
   getContent();
 });
 
-window.onscroll = () => {
-  myFunction();
-};
+document.addEventListener(
+  "scroll",
+  () => {
+    scrolling = true;
+    setInterval(() => {
+      if (scrolling) {
+        scrolling = false;
+        myFunction();
+        // place the scroll handling logic here
+      }
+    }, 2000);
+    // myFunction();
+  },
+  { passive: true }
+);
 
-let page = 1;
+// window.scroll = () => {
+//   scrolling = true;
+// };
 
 const myFunction = () => {
   //   console.log("SCROLL HEIGHT:", document.documentElement.scrollTop);
+
   var maxScroll =
     document.documentElement.scrollHeight -
     document.documentElement.clientHeight;
@@ -43,7 +61,7 @@ var emptyHTML = `<strong id="loader" class="text my-10">sem mais itens por carre
 const cardHTML = (element) => {
   return `<section class="shaddow card-container">
     <div class="card-wrapper">
-      <div class="gradient image" src=${element.imagePath} alt="img"></div>
+      <img class="gradient image" src=${element.imagePath} alt="img"></img>
       <div class="card-inner-right">
         <h3 class="text">${element.name}</h3>
         <span class="text"
@@ -59,6 +77,7 @@ const cardHTML = (element) => {
 };
 
 const getContent = async () => {
+  console.log("FIRE");
   const cards = document.getElementById("cards");
   //   const loaderID = document.getElementById("loader");
   const loaderID = document.getElementById("loader");
@@ -86,4 +105,13 @@ const getContent = async () => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+const toggleMenu = () => {
+  const menuID = document.getElementById("horizontal-menu");
+  if (menuID.className.includes("hidden")) {
+    menuID.className = "";
+  } else {
+    menuID.className = "hidden";
+  }
 };
