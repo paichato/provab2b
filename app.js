@@ -61,7 +61,7 @@ var emptyHTML = `<strong id="loader" class="text my-10">sem mais itens por carre
 const cardHTML = (element) => {
   return `<section class="shaddow card-container">
     <div class="card-wrapper">
-      <img class="gradient image" src=${element.imagePath} alt="img"></img>
+      <img class="gradient image" src=${element.imagePath} alt="tech image"></img>
       <div class="card-inner-right">
         <h3 class="text">${element.name}</h3>
         <span class="text"
