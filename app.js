@@ -30,7 +30,7 @@ const myFunction = () => {
 
     setTimeout(() => {
       getContent();
-    }, 1000);
+    }, 1500);
   }
 };
 
@@ -62,17 +62,16 @@ const getContent = async () => {
   const cards = document.getElementById("cards");
   //   const loaderID = document.getElementById("loader");
   const loaderID = document.getElementById("loader");
+
+  if (page > 6) {
+    if (!loaderID) document.getElementById("footer").innerHTML += emptyHTML;
+    return;
+  }
   if (loaderID) {
     loaderID.remove();
   } else {
-    if (page < 7) {
-      document.getElementById("cards").innerHTML += loaderHTML;
-    } else {
-      document.getElementById("cards").innerHTML += emptyHTML;
-    }
+    document.getElementById("footer").innerHTML += loaderHTML;
   }
-
-  if (page > 6) return;
   page += 1;
   fetch(`https://portal.hml.b2bstack.com.br/api/v1/products?page=${page}`)
     .then((response) => {
